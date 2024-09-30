@@ -1,8 +1,15 @@
 <!-- templates/base.html -->
-
+<style>
+    label, input {
+        display: block;
+    }
+    span.helptext {
+        display: none;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head><h1>Welcome to Movie App</h1> -->
     <meta charset="utf-8">
     <title>{% block title %}My Movie App{% endblock title %}</title>
     <link

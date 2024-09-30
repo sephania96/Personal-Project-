@@ -3,5 +3,21 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-    <h1>Welcome {{ user.username|default:'Guest' }}!</h1>
+<!-- Hello, {{ user.username|default:'Guest' }}! -->
+
+<div>
+    {% if user.is_authenticated %}
+    <h2>Hello, {{ user.username|default:'Guest' }}!</h2>
+    <h2>Welcome to the Movie review App</h2>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+         <button type="submit" class="btn btn-danger">Log Out</button>
+         <a href="{% url 'password_change' %}">Change password</a>
+    </form>
+    {% else %}
+    <h2>Hello, {{ user.username|default:'Guest' }}!</h2>
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+</div>
 {% endblock page_content %}
