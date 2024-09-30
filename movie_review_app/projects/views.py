@@ -10,8 +10,8 @@ def project_index(request):
     return render(request, "projects/project_index.html", context)
 
 def project_detail(request, pk):
-    project = project.objects.get(pk=pk)
+    movie_detail = project.objects.get(pk=pk)
     context = {
-        "project": project
+        "project": movie_detail
     }
     return render(request, "projects/project_detail.html", context)
